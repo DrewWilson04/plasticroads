@@ -2,48 +2,165 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
-    <link href="https://unpkg.com/tailwindcss@^2.0/dist/tailwind.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.0.2/tailwind.min.css">
+
 </head>
 
 <body>
-    <nav x-data="{show:false}" class="flex items-center justify-between flex-wrap bg-blue-800 p-6">
-        <div class="flex items-center flex-shrink-0 text-white mr-6">
-            <svg class="fill-current h-8 w-8 mr-2" width="54" height="54" viewBox="0 0 54 54"
-                xmlns="http://www.w3.org/2000/svg">
-                <path
-                    d="M13.5 22.1c1.8-7.2 6.3-10.8 13.5-10.8 10.8 0 12.15 8.1 17.55 9.45 3.6.9 6.75-.45 9.45-4.05-1.8 7.2-6.3 10.8-13.5 10.8-10.8 0-12.15-8.1-17.55-9.45-3.6-.9-6.75.45-9.45 4.05zM0 38.3c1.8-7.2 6.3-10.8 13.5-10.8 10.8 0 12.15 8.1 17.55 9.45 3.6.9 6.75-.45 9.45-4.05-1.8 7.2-6.3 10.8-13.5 10.8-10.8 0-12.15-8.1-17.55-9.45-3.6-.9-6.75.45-9.45 4.05z" />
-            </svg>
-            <span class="font-semibold text-xl tracking-tight">Plastic Roads</span>
+    <section class="w-full px-6 pb-12 antialiased bg-white">
+        <div class="mx-auto max-w-7xl">
+
+            <nav class="relative z-50 h-24 select-none" x-data="{ showMenu: false }">
+                <div
+                    class="container relative flex flex-wrap items-center justify-between h-24 mx-auto overflow-hidden font-medium border-b border-gray-200 md:overflow-visible lg:justify-center sm:px-4 md:px-2">
+                    <div class="flex items-center justify-start w-1/4 h-full pr-4">
+                        <a href="/index.html" class="inline-block py-4 md:py-0">
+                            <span class="p-1 text-xl font-black leading-none text-indigo-300"><span>Plastic</span><span
+                                    class="text-indigo-600"> Roads</span></span>
+                        </a>
+                    </div>
+                    <div class="top-0 left-0 items-start hidden w-full h-full p-4 text-sm bg-gray-900 bg-opacity-50 md:items-center md:w-3/4 md:absolute lg:text-base md:bg-transparent md:p-0 md:relative md:flex"
+                        :class="{'flex fixed': showMenu, 'hidden': !showMenu }">
+                        <div
+                            class="flex-col w-full h-auto overflow-hidden bg-white rounded-lg md:bg-transparent md:overflow-visible md:rounded-none md:relative md:flex md:flex-row">
+                            <a href="#_"
+                                class="inline-flex items-center block w-auto h-16 px-6 text-xl font-black leading-none text-gray-900 md:hidden">tails<span
+                                    class="text-indigo-600">.</span></a>
+                        </div>
+                    </div>
+                    <div @click="showMenu = !showMenu"
+                        class="absolute right-0 flex flex-col items-center items-end justify-center w-10 h-10 bg-white rounded-full cursor-pointer md:hidden hover:bg-gray-100">
+                        <svg class="w-6 h-6 text-gray-700" x-show="!showMenu" fill="none" stroke-linecap="round"
+                            stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor"
+                            x-cloak="">
+                            <path d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                        <svg class="w-6 h-6 text-gray-700" x-show="showMenu" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" x-cloak="">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </div>
+                </div>
+            </nav>
+
+            <!-- Main Hero Content -->
+            <div class="container max-w-lg px-4 py-32 mx-auto text-left md:max-w-none md:text-center">
+                <h1
+                    class="text-5xl font-extrabold leading-10 tracking-tight text-left text-gray-900 md:text-center sm:leading-none md:text-6xl lg:text-7xl">
+                    <span class="inline md:block">Recreating The Future</span> <span
+                        class="relative mt-2 text-transparent bg-clip-text bg-gradient-to-br from-indigo-600 to-indigo-500 md:inline-block">Of
+                        Roads</span>
+                </h1>
+                <div class="mx-auto mt-5 text-gray-500 md:mt-12 md:max-w-lg md:text-center lg:text-lg">Creating cleaner,
+                    longer lasting, and more effecient solutions to todays problems</div>
+                <div class="flex flex-col items-center mt-12 text-center">
+                    <a class="mt-3 text-sm text-indigo-500" href="mailto:hi@drew.cx?subject=Plastic%20Roads%20">Email
+                        Me</a>
+                </div>
+            </div>
+            <!-- End Main Hero Content -->
+
         </div>
-        <div class="block md:hidden">
-            <button @click="show=!show"
-                class="flex items-center px-3 py-2 border rounded text-gray-100 border-gray-200 hover:text-white hover:border-white">
-                <svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                    <title>Menu</title>
-                    <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
-                </svg>
-            </button>
-        </div>
-        <div @click.away="show = false" :class="{ 'block': show, 'hidden': !show }"
-            class="w-full block flex-grow md:flex md:justify-end md:w-auto">
-            <div>
-                <!--<a href="#"
-                    class="block md:inline-block text-sm px-4 py-2 leading-none rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 md:mt-0">Home</a>
-                <a href="#"
-                    class="block md:inline-block text-sm px-4 py-2 leading-none rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 md:mt-0">Services</a>
-                <a href="#"
-                    class="block md:inline-block text-sm px-4 py-2 leading-none rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 md:mt-0">Products</a>-->
+    </section>
+
+    <section class="px-2 py-32 bg-white md:px-0">
+        <div class="container items-center max-w-6xl px-8 mx-auto xl:px-5">
+            <div class="flex flex-wrap items-center sm:-mx-3">
+                <div class="w-full md:w-1/2 md:px-3">
+                    <div
+                        class="w-full pb-6 space-y-6 sm:max-w-md lg:max-w-lg md:space-y-4 lg:space-y-8 xl:space-y-9 sm:pr-5 lg:pr-0 md:pb-0">
+                        <h1
+                            class="text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl md:text-4xl lg:text-5xl xl:text-6xl">
+                            <span class="block xl:inline">View The Interactive </span>
+                            <span class="block text-indigo-600 xl:inline">3D Model</span>
+                        </h1>
+                        <p class="mx-auto text-base text-gray-500 sm:max-w-md lg:text-xl md:max-w-3xl"></p>
+                        <div class="relative flex flex-col sm:flex-row sm:space-x-4">
+                            <a href="/assets/downloads/roadv3.obj" download class="flex items-center w-full px-6 py-3 mb-3 text-lg text-white bg-indigo-600
+                                rounded-md sm:mb-0 hover:bg-indigo-700 sm:w-auto">
+                                Download The 3D File
+                                <svg xmlns="" class="w-5 h-5 ml-1" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                                    <polyline points="12 5 19 12 12 19"></polyline>
+                                </svg>
+                            </a>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="w-full md:w-1/2">
+                    <div class="w-full h-auto overflow-hidden rounded-md shadow-xl sm:rounded-xl">
+                        <img src="assets/images/Screen Shot 2021-06-10 at 1.40.16 PM.png">
+                    </div>
+                </div>
             </div>
         </div>
-    </nav>
+    </section>
+
+    <section class="relative py-16 bg-white min-w-screen animation-fade animation-delay">
+        <div class="container px-0 px-8 mx-auto sm:px-12 xl:px-5">
+            <p
+                class="text-xs font-bold text-left text-pink-500 uppercase sm:mx-6 sm:text-center sm:text-normal sm:font-bold">
+                Got a Question? We’ve got answers.
+            </p>
+            <h3
+                class="mt-1 text-2xl font-bold text-left text-gray-800 sm:mx-6 sm:text-3xl md:text-4xl lg:text-5xl sm:text-center sm:mx-0">
+                Frequently Asked Questions
+            </h3>
+            <div
+                class="w-full px-6 py-6 mx-auto mt-10 bg-white border border-gray-200 rounded-lg sm:px-8 md:px-12 sm:py-8 sm:shadow lg:w-5/6 xl:w-2/3">
+                <h3 class="text-lg font-bold text-purple-500 sm:text-xl md:text-2xl">How is this better?</h3>
+                <p class="mt-2 text-base text-gray-600 sm:text-lg md:text-normal">
+                    The Plastic Roads will last longer, use recycled plastic, and take less time to put in and replace.
+                </p>
+            </div>
+            <div
+                class="w-full px-6 py-6 mx-auto mt-10 bg-white border border-gray-200 rounded-lg sm:px-8 md:px-12 sm:py-8 sm:shadow lg:w-5/6 xl:w-2/3">
+                <h3 class="text-lg font-bold text-purple-500 sm:text-xl md:text-2xl">What about drainage?</h3>
+                <p class="mt-2 text-base text-gray-600 sm:text-lg md:text-normal">
+                    The Plastic Road has three drainage points to ensure the roads wont flood and help keep the roads
+                    safe.
+                </p>
+            </div>
+            <div
+                class="w-full px-6 py-6 mx-auto mt-10 bg-white border border-gray-200 rounded-lg sm:px-8 md:px-12 sm:py-8 sm:shadow lg:w-5/6 xl:w-2/3">
+                <h3 class="text-lg font-bold text-purple-500 sm:text-xl md:text-2xl">How do is it installed?</h3>
+                <p class="mt-2 text-base text-gray-600 sm:text-lg md:text-normal">
+                    You simply drop the pieces in next to the other section of road. Future designs will have connection
+                    points.
+                </p>
+            </div>
+            <div
+                class="w-full px-6 py-6 mx-auto mt-10 bg-white border border-gray-200 rounded-lg sm:px-8 md:px-12 sm:py-8 sm:shadow lg:w-5/6 xl:w-2/3">
+                <h3 class="text-lg font-bold text-purple-500 sm:text-xl md:text-2xl">When will production start?</h3>
+                <p class="mt-2 text-base text-gray-600 sm:text-lg md:text-normal">
+                    We don't have an exact time but we are hoping very soon!
+                </p>
+            </div>
+        </div>
+    </section>
 
 
-    <script src="three.js"></script>
+
+    <section class="text-gray-700 bg-white body-font">
+        <div class="container flex flex-col items-center px-8 py-8 mx-auto max-w-7xl sm:flex-row">
+            <a href="/index.html" class="text-xl font-black leading-none text-indigo-300 select-none logo">Plastic <span
+                    class="text-indigo-600">Roads</span></a>
+            <p class="mt-4 text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-l sm:border-gray-200 sm:mt-0">© 2021 Plastic
+                Roads
+            </p>
+            <span class="inline-flex justify-center mt-4 space-x-5 sm:ml-auto sm:mt-0 sm:justify-start">
+            </span>
+        </div>
+    </section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/2.8.0/alpine.js"></script>
+
 </body>
 
 </html>
